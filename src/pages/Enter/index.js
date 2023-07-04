@@ -12,10 +12,8 @@ import { useState } from 'react'
 import { Link } from "react-router-dom";
 
 function Enter() {
-    const titleText = 'Irene | 叶子 | ✌';
-    const welcomeContentText = `Hi stranger. Welcome to my website.
-
-    The following pages are meant to give you a glimpse into my joyful life and busy mind; a centralized place to read up on my ideas, thoughts and projects. `
+    const titleText = 'yys的个人空间|✌';
+    const welcomeContentText = `——————`
     const icons = [{ icon: email, text: 'email' }, { icon: phone, text: 'phone' }, { icon: wechat, text: 'wechat' }];
     const contactText = {
         email: '1163045483@qq.com',

@@ -13,7 +13,9 @@ function Photos() {
             <div className="photo-collection">
                 {images.map(item => {
                     return (
-                        <div className="photo-item-wrapper" onMouseEnter={() => {
+                        <div
+                            key={item} 
+                            className="photo-item-wrapper" onMouseEnter={() => {
                             setHoverImageIndex(item)
                         }}
                             onMouseLeave={() => {

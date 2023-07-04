@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import './index.scss'
-
+import { useEffect, useState } from "react";
 function Nav() {
     const getDate = () => {
         // 获取当前日期
@@ -29,11 +29,37 @@ function Nav() {
         var nowDate = date.getFullYear() + seperator + nowMonth + seperator + strDate;
         return nowDate;
     }
+
+    const [currentLink, setCurrentLink] = useState(null);
+
+    let location = useLocation();
+    useEffect(() => {
+        console.log('location', location);
+        setCurrentLink(location.pathname);
+    }, [location]);
+
+    const links = [
+        {
+            path: '/home',
+            name: '首页',
+        },
+        {
+            path: '/photos',
+            name: '照片'
+        }
+    ]
+
     return (
         <nav className="top-nav">
             <div className='red-date'>{getDate()}</div>
-            <Link className='text-link' to={'/home'}>首页</Link>
-            <Link className='text-link' to={'/photos'}>照片</Link>
+            {links.map(item => {
+                return <Link
+                    key={item.path}
+                    className="text-link"
+                    style={{fontWeight:currentLink === item.path ? '600' : '400'}}
+                    to={item.path}
+                >{item.name}</Link>
+            })}
         </nav>
     )
 }

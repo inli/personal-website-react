@@ -8,7 +8,7 @@ import Photos from "../pages/Photos";
 
 const router = createBrowserRouter([
     {
-        path: "/",
+        path: "/personal-website-react",
         element: <Enter />,
     },
     {
